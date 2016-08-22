@@ -1,3 +1,6 @@
+/*echostate.c
+ *reports current state of echo bit in tty driver for fd 0
+ */
 #include<stdio.h>
 #include<stdlib.h>
 #include<termios.h>
