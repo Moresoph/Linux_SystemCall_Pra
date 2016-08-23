@@ -2,6 +2,7 @@
 #include<termios.h>
 #include<stdlib.h>
 #include<unistd.h>
+#include<signal.h>
 #include<fcntl.h>
 #include<string.h>
 
@@ -10,18 +11,28 @@
 #define SLEEPTIME 1 
 #define BEEP printf("time out try again")
 
+int tty_mod(int);
+
+void ctrl_c_handler(int sig_num)
+{
+	printf("entered in signal SIGINT event\n");
+	tty_mod(0);
+	exit(1);
+}
 
 int tty_mod(int how)
 {
 	static struct termios origianl_mode;
 	static int original_flags;
+	static int stored = 0;
 	int res=0;
 	if(1 == how)
 	{
 		original_flags=fcntl(0,F_GETFL);
 		res = tcgetattr(0,&origianl_mode);
+		stored = 1;
 	}
-	else
+	else if(1 == stored)
 	{
 		fcntl(0,original_flags);
 		res = tcsetattr(0,TCSANOW,&origianl_mode);
@@ -81,6 +92,7 @@ void set_nodelay_mode()
 }
 void main()
 {
+	signal(SIGINT,ctrl_c_handler);
 	tty_mod(1);	
 	set_nodelay_mode();
 	set_cr_noecho_mode();
