@@ -12,7 +12,13 @@
 
 void ALARM_HANDLER(int signal_num)
 {
-	move(1,1);
+	static int k =0;
+	move(k,k);
+	++k;
+	if(k>10)
+	{
+		k=0;
+	}
 	addstr("ENTER ALARM_HANDLER,signal_num ");
 	refresh();
 }
@@ -24,6 +30,7 @@ int main()
 	int k =dir;
 	initscr();
 	clear();
+	alarm(GAP_TIME);	
 	while(1)
 	{
 		move(5, i+k);
@@ -38,7 +45,6 @@ int main()
 		}
 		refresh();	
 		signal(SIGALRM,ALARM_HANDLER);
-		alarm(GAP_TIME);	
 		pause();
 		move(5,i+k);
 		addstr(BLANK);
