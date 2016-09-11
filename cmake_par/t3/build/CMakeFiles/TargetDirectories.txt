@@ -1,0 +1,2 @@
+/home/yux/Linux_pra/cmake_par/t3/build/lib/CMakeFiles/hello.dir
+/home/yux/Linux_pra/cmake_par/t3/build/lib/CMakeFiles/hello_static.dir

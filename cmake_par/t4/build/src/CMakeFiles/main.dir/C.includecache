@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yux/Linux_pra/cmake_par/t4/src/main.c
+hello.h
+-
+
+/usr/local/include/hello/hello.h
+stdio.h
+-
+

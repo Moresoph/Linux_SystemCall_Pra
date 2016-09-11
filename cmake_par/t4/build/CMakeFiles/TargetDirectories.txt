@@ -1,0 +1,1 @@
+/home/yux/Linux_pra/cmake_par/t4/build/src/CMakeFiles/main.dir

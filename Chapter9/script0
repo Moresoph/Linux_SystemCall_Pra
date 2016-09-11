@@ -1,0 +1,9 @@
+#this is called script0
+
+if ls|grep 2 
+then 
+	echo in then 
+else
+	echo in else
+fi
+

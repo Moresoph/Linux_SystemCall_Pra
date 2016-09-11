@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/execute.h
+
+/home/yux/Linux_pra/Chapter8/yush/src/yush1.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+signal.h
+-
+execute.h
+-
+
